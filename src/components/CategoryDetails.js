@@ -14,25 +14,17 @@ const CategoryDetails = ({ categoryId, categoryTitle }) => {
             setError(null);
             
             try {
-                // Replace with your actual API endpoint
-                const response = await fetch(`https://api.example.com/properties/category/${categoryId}`);
-                
-                // For demonstration, using a timeout to simulate API delay
-                // Remove this in production
+                // For demo purposes, using a timeout to simulate API delay
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch properties: ${response.status}`);
-                }
-                
-                const data = await response.json();
-                setProperties(data);
+                // For demo purposes, directly using mock data
+                // In a real app, you would make an API call here
+                setProperties(getMockProperties(categoryId));
             } catch (err) {
                 console.error("Error fetching properties:", err);
                 setError("Failed to load properties. Please try again later.");
                 
-                // For demonstration - using mock data when API fails
-                // Remove this in production and handle errors properly
+                // Fallback to mock data
                 setProperties(getMockProperties(categoryId));
             } finally {
                 setLoading(false);
