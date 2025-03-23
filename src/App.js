@@ -21,22 +21,24 @@ function App() {
 
     // Function to be passed to components to show the signup form
     const handleOpenSignup = () => {
-        setShowLoginForm(false);
         setShowSignupForm(true);
+        document.body.classList.add('modal-open');
     };
 
     const handleCloseSignup = () => {
         setShowSignupForm(false);
+        document.body.classList.remove('modal-open');
     };
 
     // Function to be passed to components to show the login form
     const handleOpenLogin = () => {
-        setShowSignupForm(false);
         setShowLoginForm(true);
+        document.body.classList.add('modal-open');
     };
 
     const handleCloseLogin = () => {
         setShowLoginForm(false);
+        document.body.classList.remove('modal-open');
     };
 
     return (
