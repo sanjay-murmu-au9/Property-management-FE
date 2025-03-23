@@ -7,13 +7,13 @@ function Footer() {
             <div className="container">
                 <div className="footer-content">
                     <div className="footer-company">
-                        <h3 className="footer-heading">PropertyManager</h3>
+                        <h3 className="footer-heading">PropertyFinder</h3>
                         <p className="footer-description">
-                            Professional property management services to help property owners manage their real estate easily.
+                            Find your dream property among thousands of listings for buying or renting across top cities in India.
                         </p>
                         <div className="footer-contact">
                             <p><span className="contact-icon">📱</span> +91 90360 15272</p>
-                            <p><span className="contact-icon">✉️</span> info@propertymanager.com</p>
+                            <p><span className="contact-icon">✉️</span> info@propertyfinder.com</p>
                         </div>
                     </div>
 
@@ -22,19 +22,19 @@ function Footer() {
                             <h4 className="footer-subheading">Quick Links</h4>
                             <ul>
                                 <li><a href="#home">Home</a></li>
-                                <li><a href="#services">Services</a></li>
-                                <li><a href="#about">About Us</a></li>
+                                <li><a href="#property-types">Properties</a></li>
+                                <li><a href="#pricing">Pricing</a></li>
                                 <li><a href="#contact">Contact</a></li>
                             </ul>
                         </div>
 
                         <div className="footer-services">
-                            <h4 className="footer-subheading">Our Services</h4>
+                            <h4 className="footer-subheading">Property Types</h4>
                             <ul>
-                                <li><a href="#services">Tenant Management</a></li>
-                                <li><a href="#services">Rent Collection</a></li>
-                                <li><a href="#services">Property Maintenance</a></li>
-                                <li><a href="#services">Legal Assistance</a></li>
+                                <li><a href="#property-types">Apartments</a></li>
+                                <li><a href="#property-types">Houses</a></li>
+                                <li><a href="#property-types">Villas</a></li>
+                                <li><a href="#property-types">Commercial</a></li>
                             </ul>
                         </div>
 
@@ -53,12 +53,12 @@ function Footer() {
                 </div>
 
                 <div className="footer-bottom">
-                    <p className="copyright">© {new Date().getFullYear()} PropertyManager. All rights reserved.</p>
+                    <p className="copyright">© {new Date().getFullYear()} PropertyFinder. All rights reserved.</p>
                     <div className="footer-social">
-                        <a href="#" className="social-icon">Facebook</a>
-                        <a href="#" className="social-icon">Twitter</a>
-                        <a href="#" className="social-icon">LinkedIn</a>
-                        <a href="#" className="social-icon">Instagram</a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon">Facebook</a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">Twitter</a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon">LinkedIn</a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">Instagram</a>
                     </div>
                 </div>
             </div>

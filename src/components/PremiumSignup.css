@@ -1,0 +1,133 @@
+.premium-signup-section {
+  background-color: #f8f9fa;
+  padding: 70px 0;
+}
+
+.premium-content {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.premium-text {
+  flex: 1;
+}
+
+.premium-description {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.premium-benefits {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.premium-benefits li {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: flex-start;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+.benefit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  margin-right: 12px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.premium-button {
+  padding: 14px 30px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(216, 0, 50, 0.3);
+}
+
+.premium-button:hover {
+  background-color: #bf0029;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(216, 0, 50, 0.4);
+}
+
+.premium-image {
+  flex: 1;
+  max-width: 450px;
+  position: relative;
+}
+
+.premium-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  background-color: #e9ecef;
+  min-height: 300px;
+  object-fit: cover;
+}
+
+.premium-badge {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transform: rotate(15deg);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 992px) {
+  .premium-content {
+    flex-direction: column;
+  }
+
+  .premium-image {
+    order: -1;
+    margin-bottom: 30px;
+  }
+
+  .premium-badge {
+    top: auto;
+    bottom: -15px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .premium-signup-section {
+    padding: 50px 0;
+  }
+
+  .premium-description {
+    font-size: 1.1rem;
+  }
+
+  .premium-benefits li {
+    font-size: 1rem;
+  }
+
+  .premium-button {
+    width: 100%;
+  }
+}
