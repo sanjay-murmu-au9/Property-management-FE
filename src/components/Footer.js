@@ -7,13 +7,16 @@ function Footer({ onLoginClick, onSignupClick }) {
             <div className="container">
                 <div className="footer-content">
                     <div className="footer-company">
-                        <h3 className="footer-heading">PropertyFinder</h3>
+                        <h3 className="footer-heading">
+                            <span className="logo-prime">Prime</span><span className="logo-property">Property</span>
+                        </h3>
                         <p className="footer-description">
                             Find your dream property among thousands of listings for buying or renting across top cities in India.
                         </p>
                         <div className="footer-contact">
-                            <p><span className="contact-icon">📱</span> +91 90360 15272</p>
-                            <p><span className="contact-icon">✉️</span> info@propertyfinder.com</p>
+                            <p><span className="contact-icon">📍</span> 123 Property Lane, Mumbai, India</p>
+                            <p><span className="contact-icon">📞</span> +91 9876543210</p>
+                            <p><span className="contact-icon">✉️</span> info@primeproperty.com</p>
                         </div>
                         {/* <div className="footer-actions">
                             <button className="footer-login" onClick={onLoginClick}>Login</button>
@@ -57,7 +60,7 @@ function Footer({ onLoginClick, onSignupClick }) {
                 </div>
 
                 <div className="footer-bottom">
-                    <p className="copyright">© {new Date().getFullYear()} PropertyFinder. All rights reserved.</p>
+                    <p className="copyright">© {new Date().getFullYear()} PrimeProperty. All rights reserved.</p>
                     <div className="footer-social">
                         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon">Facebook</a>
                         <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">Twitter</a>

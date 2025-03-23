@@ -14,10 +14,22 @@
 }
 
 .logo a {
-  color: var(--secondary-color);
   font-size: 1.8rem;
   font-weight: 700;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo-prime {
+  color: var(--primary-color);
+  letter-spacing: 0.5px;
+  margin-right: 5px;
+}
+
+.logo-property {
+  color: var(--secondary-color);
+  letter-spacing: 0.5px;
 }
 
 .menu-toggle {

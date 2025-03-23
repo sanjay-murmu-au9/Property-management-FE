@@ -18,7 +18,7 @@ function PremiumSignup() {
             <div className="container">
                 <div className="premium-content">
                     <div className="premium-text">
-                        <h2 className="section-title">Upgrade to PropertyFinder Premium</h2>
+                        <h2 className="section-title">Upgrade to PrimeProperty Premium</h2>
                         <p className="premium-description">
                             Get exclusive access to premium listings, priority customer support, and advanced search filters
                         </p>
@@ -34,7 +34,7 @@ function PremiumSignup() {
                         </button>
                     </div>
                     <div className="premium-image">
-                        <img src="https://via.placeholder.com/400x500" alt="PropertyFinder Premium" />
+                        <img src="https://via.placeholder.com/400x500" alt="PrimeProperty Premium" />
                         <div className="premium-badge">
                             <span>PREMIUM</span>
                         </div>

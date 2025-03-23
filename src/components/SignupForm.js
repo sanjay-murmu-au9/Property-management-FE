@@ -39,7 +39,7 @@ function SignupForm({ onClose, onLoginClick }) {
             alert('OTP sent to your mobile number!');
         } else {
             // Final submission
-            alert('Signup successful! Welcome to PropertyFinder.');
+            alert('Signup successful! Welcome to PrimeProperty.');
             if (onClose) onClose();
         }
     };
@@ -103,7 +103,7 @@ function SignupForm({ onClose, onLoginClick }) {
                             required
                         />
                         <label htmlFor="agreeTerms">
-                            I agree to PropertyFinder's Terms of Service and Privacy Policy
+                            I agree to PrimeProperty's Terms of Service and Privacy Policy
                         </label>
                     </div>
                     <button type="submit" className="signup-button">Create Account</button>
@@ -164,7 +164,7 @@ function SignupForm({ onClose, onLoginClick }) {
                             required
                         />
                         <label htmlFor="agreeTerms">
-                            I agree to PropertyFinder's Terms of Service and Privacy Policy
+                            I agree to PrimeProperty's Terms of Service and Privacy Policy
                         </label>
                     </div>
                     <button type="submit" className="signup-button">Verify & Create Account</button>
@@ -177,8 +177,8 @@ function SignupForm({ onClose, onLoginClick }) {
         <div className="signup-form-container">
             <div className="signup-form-modal">
                 <div className="signup-form-header">
-                    <h2>Create your PropertyFinder Account</h2>
-                    <p>Find your perfect property faster with a PropertyFinder account</p>
+                    <h2>Create your PrimeProperty Account</h2>
+                    <p>Find your perfect property faster with a PrimeProperty account</p>
                     {onClose && (
                         <button className="close-button" onClick={onClose}>×</button>
                     )}

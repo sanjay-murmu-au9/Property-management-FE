@@ -37,7 +37,7 @@ function LoginForm({ onClose, onSignupClick }) {
         <div className="login-form-container">
             <div className="login-form-modal">
                 <div className="login-form-header">
-                    <h2>Log in to PropertyFinder</h2>
+                    <h2>Log in to PrimeProperty</h2>
                     {onClose && (
                         <button className="close-button" onClick={onClose}>×</button>
                     )}

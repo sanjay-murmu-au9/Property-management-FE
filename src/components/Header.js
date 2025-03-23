@@ -13,7 +13,7 @@ function Header({ onSignupClick, onLoginClick }) {
             <div className="container">
                 <div className="header-content">
                     <div className="logo">
-                        <a href="#home">PropertyFinder</a>
+                        <a href="#home"><span className="logo-prime">Prime</span><span className="logo-property">Property</span></a>
                     </div>
 
                     <button className="menu-toggle" onClick={toggleMenu}>

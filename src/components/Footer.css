@@ -21,6 +21,16 @@
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-heading .logo-prime {
+  color: var(--primary-color);
+  margin-right: 5px;
+}
+
+.footer-heading .logo-property {
   color: #fff;
 }
 
