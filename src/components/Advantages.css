@@ -1,0 +1,45 @@
+.advantages-section {
+  background-color: white;
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.advantage-card {
+  background-color: var(--background-light);
+  border-left: 3px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.advantage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.advantage-title {
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.advantage-description {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .advantages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .advantage-card {
+    padding: 20px;
+  }
+}

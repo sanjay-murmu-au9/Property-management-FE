@@ -1,0 +1,36 @@
+.property-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.property-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.property-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.property-item h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.property-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  color: #666;
+}
+
+.property-details span {
+  font-size: 0.9rem;
+}
