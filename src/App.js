@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import PropertySearch from './components/Banner';
@@ -14,6 +15,27 @@ import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import CategoryDetailsPage from './components/CategoryDetailsPage';
+
+// Homepage Component to keep the current structure
+function HomePage({ onSignupClick, onLoginClick }) {
+    return (
+        <>
+            <Header onSignupClick={onSignupClick} onLoginClick={onLoginClick} />
+            <PropertySearch onLoginClick={onLoginClick} />
+            <PropertyTypes />
+            <WhyChooseUs />
+            <MarketStats />
+            <PricingPlans onSignupClick={onSignupClick} />
+            <BuyerBenefits />
+            <HowToBuy />
+            <MobileApp />
+            <Testimonials />
+            <FAQ />
+            <Footer onLoginClick={onLoginClick} onSignupClick={onSignupClick} />
+        </>
+    );
+}
 
 function App() {
     const [showSignupForm, setShowSignupForm] = useState(false);
@@ -42,22 +64,18 @@ function App() {
     };
 
     return (
-        <div className="App">
-            <Header onSignupClick={handleOpenSignup} onLoginClick={handleOpenLogin} />
-            <PropertySearch onLoginClick={handleOpenLogin} />
-            <PropertyTypes />
-            <WhyChooseUs />
-            <MarketStats />
-            <PricingPlans onSignupClick={handleOpenSignup} />
-            <BuyerBenefits />
-            <HowToBuy />
-            <MobileApp />
-            <Testimonials />
-            <FAQ />
-            <Footer onLoginClick={handleOpenLogin} onSignupClick={handleOpenSignup} />
-            {showSignupForm && <SignupForm onClose={handleCloseSignup} onLoginClick={handleOpenLogin} />}
-            {showLoginForm && <LoginForm onClose={handleCloseLogin} onSignupClick={handleOpenSignup} />}
-        </div>
+        <Router basename="/Property-management-FE">
+            <div className="App">
+                <Routes>
+                    <Route path="/" element={<HomePage onSignupClick={handleOpenSignup} onLoginClick={handleOpenLogin} />} />
+                    <Route path="/category/:categoryId/:categoryTitle" element={<CategoryDetailsPage />} />
+                    <Route path="*" element={<Navigate to="/" replace />} />
+                </Routes>
+                
+                {showSignupForm && <SignupForm onClose={handleCloseSignup} onLoginClick={handleOpenLogin} />}
+                {showLoginForm && <LoginForm onClose={handleCloseLogin} onSignupClick={handleOpenSignup} />}
+            </div>
+        </Router>
     );
 }
 
