@@ -1,49 +1,57 @@
 import React from 'react';
 import './Services.css';
 
-function Services() {
-    const services = [
+function PropertyTypes() {
+    const propertyTypes = [
         {
             id: 1,
-            title: "Tenant Management",
-            description: "Our tenant management service takes care of all aspects of tenant management, from screening and onboarding to resolving tenant queries. We ensure a seamless landlord-tenant relationship."
+            title: "Apartments",
+            description: "Browse through our collection of modern apartments, from cozy studios to spacious penthouses. Perfect for singles, couples, or small families looking for convenient living.",
+            icon: "🏢"
         },
         {
             id: 2,
-            title: "Rent Collection",
-            description: "We manage rent collection on your behalf, ensuring you receive timely payments every month. Our team also manages follow-ups and reminders, so you never have to worry about payment delays."
+            title: "Independent Houses",
+            description: "Explore standalone houses with private spaces and gardens. Ideal for families looking for privacy, space, and the freedom to customize their living environment.",
+            icon: "🏠"
         },
         {
             id: 3,
-            title: "Property Maintenance",
-            description: "Our property management team provides regular property maintenance services, including repairs, inspections, and maintenance. We handle all tenant requests and preventive maintenance tasks."
+            title: "Villas",
+            description: "Discover luxury villas with premium amenities, spacious layouts, and exclusive locations. Perfect for those seeking an upscale lifestyle with all modern conveniences.",
+            icon: "🏘️"
         },
         {
             id: 4,
-            title: "Documentation and Legal Assistance",
-            description: "We offer complete documentation and legal support for rental agreements, tenant contracts, and more. We ensure all paperwork is legally compliant and handle any legal queries."
+            title: "Commercial Spaces",
+            description: "Find the perfect commercial property for your business needs, from retail spaces and offices to warehouses and industrial units in prime locations.",
+            icon: "🏪"
         },
         {
             id: 5,
-            title: "Tenant Exit Management",
-            description: "We manage tenant move-outs efficiently, ensuring the property is returned in good condition. Our team handles inspections, documentation, and security deposit settlement."
+            title: "PG & Co-living",
+            description: "Affordable shared accommodations for students and working professionals with essential amenities and convenient locations near educational and business hubs.",
+            icon: "👥"
         },
         {
             id: 6,
-            title: "Online Dashboard",
-            description: "Our user-friendly online dashboard gives you real-time access to all property-related updates. Track rent payments, maintenance requests, tenant details, and more, all in one place."
+            title: "Farmhouses",
+            description: "Experience countryside living with our selection of farmhouses located in serene environments. Perfect for weekend getaways or for those seeking a peaceful lifestyle.",
+            icon: "🌄"
         }
     ];
 
     return (
-        <section className="services-section section" id="services">
+        <section className="property-types-section section" id="property-types">
             <div className="container">
-                <h2 className="section-title">Our Key Property Management Services</h2>
-                <div className="services-grid">
-                    {services.map(service => (
-                        <div className="service-card" key={service.id}>
-                            <h3 className="service-title">{service.title}</h3>
-                            <p className="service-description">{service.description}</p>
+                <h2 className="section-title">Explore Property Types</h2>
+                <div className="property-types-grid">
+                    {propertyTypes.map(type => (
+                        <div className="property-type-card" key={type.id}>
+                            <div className="property-type-icon">{type.icon}</div>
+                            <h3 className="property-type-title">{type.title}</h3>
+                            <p className="property-type-description">{type.description}</p>
+                            <a href="#" className="view-properties-link">View Properties</a>
                         </div>
                     ))}
                 </div>
@@ -52,4 +60,4 @@ function Services() {
     );
 }
 
-export default Services;
+export default PropertyTypes;

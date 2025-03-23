@@ -1,29 +1,85 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Banner.css';
 
-function Banner() {
+function PropertySearch() {
+    const [propertyType, setPropertyType] = useState('all');
+    const [location, setLocation] = useState('Mumbai');
+
     return (
-        <section className="banner" id="home">
+        <section className="property-search" id="home">
             <div className="container">
-                <div className="banner-content">
-                    <div className="banner-text">
-                        <h1>Comprehensive Property Management Services</h1>
-                        <p>From securing verified tenants to regular property maintenance, we handle everything for you</p>
-                        <button className="btn">Talk to Us Today!</button>
+                <div className="search-content">
+                    <div className="search-text">
+                        <h1>Find Your Dream Property</h1>
+                        <p>Discover thousands of apartments, houses, and properties for rent or sale</p>
                     </div>
-                    <div className="banner-image">
-                        <img src="https://via.placeholder.com/600x400" alt="Property Management" />
+
+                    <div className="search-box">
+                        <div className="search-filters">
+                            <div className="filter-group">
+                                <label>Property Type</label>
+                                <select
+                                    value={propertyType}
+                                    onChange={(e) => setPropertyType(e.target.value)}
+                                >
+                                    <option value="all">All Properties</option>
+                                    <option value="apartment">Apartments</option>
+                                    <option value="house">Houses</option>
+                                    <option value="villa">Villas</option>
+                                    <option value="commercial">Commercial</option>
+                                </select>
+                            </div>
+
+                            <div className="filter-group">
+                                <label>Purpose</label>
+                                <select>
+                                    <option value="buy">Buy</option>
+                                    <option value="rent">Rent</option>
+                                </select>
+                            </div>
+
+                            <div className="filter-group">
+                                <label>Price Range</label>
+                                <select>
+                                    <option value="any">Any</option>
+                                    <option value="budget">Budget (Under ₹20L)</option>
+                                    <option value="mid">Mid-range (₹20L-50L)</option>
+                                    <option value="luxury">Luxury (Above ₹50L)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button className="search-btn">Search Properties</button>
                     </div>
                 </div>
+
                 <div className="location-selector">
-                    <h3>Select Your City</h3>
+                    <h3>Popular Cities</h3>
                     <div className="city-buttons">
-                        <button className="city-btn active">Mumbai</button>
-                        <button className="city-btn">Delhi NCR</button>
-                        <button className="city-btn">Bangalore</button>
-                        <button className="city-btn">Chennai</button>
-                        <button className="city-btn">Hyderabad</button>
-                        <button className="city-btn">Pune</button>
+                        <button
+                            className={`city-btn ${location === 'Mumbai' ? 'active' : ''}`}
+                            onClick={() => setLocation('Mumbai')}
+                        >Mumbai</button>
+                        <button
+                            className={`city-btn ${location === 'Delhi NCR' ? 'active' : ''}`}
+                            onClick={() => setLocation('Delhi NCR')}
+                        >Delhi NCR</button>
+                        <button
+                            className={`city-btn ${location === 'Bangalore' ? 'active' : ''}`}
+                            onClick={() => setLocation('Bangalore')}
+                        >Bangalore</button>
+                        <button
+                            className={`city-btn ${location === 'Chennai' ? 'active' : ''}`}
+                            onClick={() => setLocation('Chennai')}
+                        >Chennai</button>
+                        <button
+                            className={`city-btn ${location === 'Hyderabad' ? 'active' : ''}`}
+                            onClick={() => setLocation('Hyderabad')}
+                        >Hyderabad</button>
+                        <button
+                            className={`city-btn ${location === 'Pune' ? 'active' : ''}`}
+                            onClick={() => setLocation('Pune')}
+                        >Pune</button>
                     </div>
                 </div>
             </div>
@@ -31,4 +87,4 @@ function Banner() {
     );
 }
 
-export default Banner;
+export default PropertySearch;
