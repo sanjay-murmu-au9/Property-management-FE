@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
 
-function Footer() {
+function Footer({ onLoginClick, onSignupClick }) {
     return (
         <footer className="footer" id="contact">
             <div className="container">
@@ -15,6 +15,10 @@ function Footer() {
                             <p><span className="contact-icon">📱</span> +91 90360 15272</p>
                             <p><span className="contact-icon">✉️</span> info@propertyfinder.com</p>
                         </div>
+                        {/* <div className="footer-actions">
+                            <button className="footer-login" onClick={onLoginClick}>Login</button>
+                            <button className="footer-signup" onClick={onSignupClick}>Sign Up</button>
+                        </div> */}
                     </div>
 
                     <div className="footer-links">

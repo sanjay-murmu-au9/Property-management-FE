@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Header.css';
 
-function Header({ onSignupClick }) {
+function Header({ onSignupClick, onLoginClick }) {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -26,7 +26,9 @@ function Header({ onSignupClick }) {
                             <li className="nav-item"><a href="#property-types">Properties</a></li>
                             <li className="nav-item"><a href="#pricing">Pricing</a></li>
                             <li className="nav-item"><a href="#contact">Contact</a></li>
-                            <li className="nav-item login-btn"><a href="#login">Login</a></li>
+                            <li className="nav-item login-btn">
+                                <button onClick={onLoginClick}>Login</button>
+                            </li>
                             <li className="nav-item signup-btn">
                                 <button onClick={onSignupClick}>Sign Up</button>
                             </li>

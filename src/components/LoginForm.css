@@ -1,4 +1,4 @@
-.signup-form-container {
+.login-form-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,12 +12,12 @@
   backdrop-filter: blur(5px);
 }
 
-.signup-form-modal {
+.login-form-modal {
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   width: 100%;
-  max-width: 500px;
+  max-width: 450px;
   overflow: hidden;
   animation: slideUp 0.3s ease-out forwards;
 }
@@ -33,22 +33,16 @@
   }
 }
 
-.signup-form-header {
+.login-form-header {
   padding: 25px 30px;
   position: relative;
   border-bottom: 1px solid #f0f0f0;
 }
 
-.signup-form-header h2 {
+.login-form-header h2 {
   margin: 0;
   font-size: 1.5rem;
   color: var(--secondary-color);
-}
-
-.signup-form-header p {
-  margin: 8px 0 0;
-  color: var(--text-light);
-  font-size: 0.95rem;
 }
 
 .close-button {
@@ -68,11 +62,11 @@
   color: var(--text-dark);
 }
 
-.social-signup {
+.social-login {
   padding: 20px 30px;
 }
 
-.google-signup {
+.google-login {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,12 +82,12 @@
   transition: all 0.2s;
 }
 
-.google-signup:hover {
+.google-login:hover {
   background-color: #f8f8f8;
   border-color: #ccc;
 }
 
-.google-signup img {
+.google-login img {
   width: 20px;
   height: 20px;
   margin-right: 10px;
@@ -119,31 +113,7 @@
   padding: 0 15px;
 }
 
-.auth-tabs {
-  display: flex;
-  padding: 0 30px;
-  margin-bottom: 20px;
-}
-
-.tab-button {
-  flex: 1;
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  padding: 10px 0;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #999;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.tab-button.active {
-  color: var(--primary-color);
-  border-bottom-color: var(--primary-color);
-}
-
-.signup-form-content {
+.login-form {
   padding: 0 30px 20px;
 }
 
@@ -172,68 +142,42 @@
   outline: none;
 }
 
-.phone-input-container {
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.remember-me {
   display: flex;
   align-items: center;
 }
 
-.country-code {
-  padding: 12px;
-  background-color: #f7f7f7;
-  border: 1px solid #ddd;
-  border-right: none;
-  border-radius: 6px 0 0 6px;
-  color: var(--text-dark);
-  font-weight: 500;
+.remember-me input {
+  margin-right: 8px;
 }
 
-.phone-input-container input {
-  border-radius: 0 6px 6px 0;
-}
-
-.otp-input-container input {
-  letter-spacing: 5px;
-  font-size: 1.2rem;
-  text-align: center;
-}
-
-.resend-otp {
-  margin-top: 10px;
+.remember-me label {
   font-size: 0.9rem;
   color: var(--text-light);
 }
 
-.resend-button {
+.forgot-password {
   background: none;
   border: none;
   color: var(--primary-color);
+  font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   padding: 0;
 }
 
-.resend-button:hover {
+.forgot-password:hover {
   text-decoration: underline;
 }
 
-.form-check {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 20px;
-}
-
-.form-check input {
-  margin-top: 5px;
-  margin-right: 10px;
-}
-
-.form-check label {
-  font-size: 0.9rem;
-  color: var(--text-light);
-  line-height: 1.4;
-}
-
-.signup-button {
+.login-button {
   width: 100%;
   padding: 12px;
   background-color: var(--primary-color);
@@ -246,11 +190,11 @@
   transition: background-color 0.2s;
 }
 
-.signup-button:hover {
+.login-button:hover {
   background-color: #bf0029;
 }
 
-.signup-form-footer {
+.login-form-footer {
   padding: 15px 30px;
   border-top: 1px solid #f0f0f0;
   text-align: center;
@@ -258,17 +202,7 @@
   color: var(--text-light);
 }
 
-.signup-form-footer a {
-  color: var(--primary-color);
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.signup-form-footer a:hover {
-  text-decoration: underline;
-}
-
-.login-text-button {
+.signup-text-button {
   color: var(--primary-color);
   font-weight: 500;
   background: none;
@@ -278,27 +212,23 @@
   font-size: 0.9rem;
 }
 
-.login-text-button:hover {
+.signup-text-button:hover {
   text-decoration: underline;
 }
 
 @media (max-width: 576px) {
-  .signup-form-modal {
+  .login-form-modal {
     max-width: 100%;
     height: 100%;
     border-radius: 0;
   }
 
-  .signup-form-header,
-  .social-signup,
-  .signup-form-content,
-  .signup-form-footer {
+  .login-form-header,
+  .social-login,
+  .login-form,
+  .login-form-footer {
     padding-left: 20px;
     padding-right: 20px;
-  }
-
-  .auth-tabs {
-    padding: 0 20px;
   }
 
   .divider {

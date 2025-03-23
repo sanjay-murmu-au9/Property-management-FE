@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './SignupForm.css';
 
-function SignupForm({ onClose }) {
+function SignupForm({ onClose, onLoginClick }) {
     const [activeTab, setActiveTab] = useState('email');
     const [formData, setFormData] = useState({
         fullName: '',
@@ -42,6 +42,11 @@ function SignupForm({ onClose }) {
             alert('Signup successful! Welcome to PropertyFinder.');
             if (onClose) onClose();
         }
+    };
+
+    const handleLoginClick = () => {
+        if (onClose) onClose();
+        if (onLoginClick) onLoginClick();
     };
 
     const renderEmailSignup = () => (
@@ -210,7 +215,7 @@ function SignupForm({ onClose }) {
                 </form>
 
                 <div className="signup-form-footer">
-                    <p>Already have an account? <a href="#login">Log in</a></p>
+                    <p>Already have an account? <button onClick={handleLoginClick} className="login-text-button">Log in</button></p>
                 </div>
             </div>
         </div>
