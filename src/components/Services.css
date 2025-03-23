@@ -89,6 +89,19 @@
 .property-type-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 8px 25px rgba(var(--primary-color-rgb), 0.15);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(var(--primary-color-rgb), 0.3);
+  }
+  100% {
+    box-shadow: 0 8px 25px rgba(var(--primary-color-rgb), 0.15);
+  }
 }
 
 .property-type-card.active {
@@ -122,15 +135,55 @@
   right: 0;
   background-color: rgba(var(--primary-color-rgb), 0.9);
   color: white;
-  padding: 10px;
+  padding: 8px;
   text-align: center;
   transform: translateY(100%);
   transition: transform 0.3s ease;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .property-type-card:hover .card-overlay {
   transform: translateY(0);
+}
+
+/* Replace the arrow down indicator with a thicker indicator */
+.property-type-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 12.5%;
+  width: 75%; /* 3/4 of the card width */
+  height: 5px;
+  background-color: var(--primary-color);
+  opacity: 0;
+  transform: scaleX(0.7);
+  transform-origin: center;
+  transition: all 0.3s ease;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  box-shadow: 0 0 0 rgba(var(--primary-color-rgb), 0);
+}
+
+.property-type-card:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+  animation: glowPulse 1.5s infinite;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 5px rgba(var(--primary-color-rgb), 0.3);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(var(--primary-color-rgb), 0.7);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(var(--primary-color-rgb), 0.3);
+  }
 }
 
 /* Subcategories Section */
@@ -260,4 +313,45 @@
   .subcategories-title {
     font-size: 1.3rem;
   }
+}
+
+.click-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-bottom-left-radius: 8px;
+  font-weight: 500;
+  opacity: 0.9;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.property-type-card:hover .click-label {
+  transform: translateY(0);
+}
+
+.view-details-btn {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-top: auto;
+  text-align: center;
+  opacity: 0.8;
+  transform: translateY(5px);
+}
+
+.property-type-card:hover .view-details-btn {
+  background-color: var(--primary-color);
+  color: white;
+  opacity: 1;
+  transform: translateY(0);
 }

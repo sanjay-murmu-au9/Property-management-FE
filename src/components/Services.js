@@ -101,8 +101,11 @@ function PropertyTypes() {
                             <div className="property-type-icon">{type.icon}</div>
                             <h3 className="property-type-title">{type.title}</h3>
                             <p className="property-type-description">{type.description}</p>
+                            <button className="view-details-btn">
+                                View Details
+                            </button>
                             <div className="card-overlay">
-                                <span>View {type.title}</span>
+                                <span>View {type.title} Properties</span>
                             </div>
                         </div>
                     ))}
