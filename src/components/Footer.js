@@ -14,7 +14,7 @@ function Footer({ onLoginClick, onSignupClick }) {
                             Discover your dream property among thousands of listings for rent or purchase across top cities in India.
                         </p>
                         <div className="footer-contact">
-                            <p><span className="contact-icon">📍</span> 123 Property Lane, Mumbai, India</p>
+                            <p><span className="contact-icon">📍</span> 123 Bellandur, Bangalore, India</p>
                             <p><span className="contact-icon">📞</span> +91 8260028808</p>
                             <p><span className="contact-icon">✉️</span> info@primeproperty.com</p>
                         </div>
@@ -64,8 +64,8 @@ function Footer({ onLoginClick, onSignupClick }) {
                                 <li>Delhi NCR</li>
                                 <li>Bangalore</li>
                                 <li>Chennai</li>
-                                <li>Hyderabad</li>
-                                <li>Pune</li>
+                                {/* <li>Hyderabad</li> */}
+                                {/* <li>Pune</li> */}
                             </ul>
                         </div>
                     </div>

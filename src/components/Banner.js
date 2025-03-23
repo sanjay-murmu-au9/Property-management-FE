@@ -11,7 +11,7 @@ function PropertySearch({ onLoginClick }) {
                 <div className="search-content">
                     <div className="search-text">
                         <h1>Find Your Dream Property</h1>
-                        <p>Discover premium properties with verified listings and risk-free loan assistance at just 2% the cost of other platforms. Your dream home is just a click away!</p>
+                        <p>Discover Premium Properties with verified listings with risk-free loan assistance at just 2% down payment. Your dream home in a click away!</p>
                         <button className="cta-btn" onClick={onLoginClick}>Get Started Now</button>
                     </div>
 
