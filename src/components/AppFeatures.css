@@ -18,14 +18,16 @@
 .app-subtitle {
   font-size: 1.3rem;
   color: var(--text-dark);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  margin-top: -10px;
   font-weight: 400;
 }
 
 .section-subtitle {
   font-size: 1.3rem;
   color: var(--text-dark);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  margin-top: -20px;
   font-weight: 400;
 }
 

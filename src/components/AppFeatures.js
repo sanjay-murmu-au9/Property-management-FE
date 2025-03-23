@@ -51,7 +51,7 @@ function AppFeatures() {
     };
 
     return (
-        <section className="app-features section" id="contact">
+        <section className="app-features section" id="app-contact">
             <div className="container">
                 <div className="app-features-content">
                     <div className="app-features-section">

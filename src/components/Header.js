@@ -8,12 +8,26 @@ function Header({ onSignupClick, onLoginClick }) {
         setMenuOpen(!menuOpen);
     };
 
+    const closeMenu = () => {
+        setMenuOpen(false);
+    };
+
+    const handleLoginClick = () => {
+        closeMenu();
+        onLoginClick();
+    };
+
+    const handleSignupClick = () => {
+        closeMenu();
+        onSignupClick();
+    };
+
     return (
         <header className="header">
             <div className="container">
                 <div className="header-content">
                     <div className="logo">
-                        <a href="#home"><span className="logo-prime">Prime</span><span className="logo-property">Property</span></a>
+                        <a href="#home" onClick={closeMenu}><span className="logo-prime">Prime</span><span className="logo-property">Property</span></a>
                     </div>
 
                     <button className="menu-toggle" onClick={toggleMenu}>
@@ -22,15 +36,15 @@ function Header({ onSignupClick, onLoginClick }) {
 
                     <nav className={`nav-menu ${menuOpen ? 'open' : ''}`}>
                         <ul className="nav-list">
-                            <li className="nav-item"><a href="#home">Home</a></li>
-                            <li className="nav-item"><a href="#property-types">Properties</a></li>
-                            <li className="nav-item"><a href="#pricing">Pricing</a></li>
-                            <li className="nav-item"><a href="#contact">Contact</a></li>
+                            <li className="nav-item"><a href="#home" onClick={closeMenu}>Home</a></li>
+                            <li className="nav-item"><a href="#property-types" onClick={closeMenu}>Properties</a></li>
+                            <li className="nav-item"><a href="#pricing" onClick={closeMenu}>Pricing</a></li>
+                            <li className="nav-item"><a href="#app-contact" onClick={closeMenu}>Contact</a></li>
                             <li className="nav-item login-btn">
-                                <button onClick={onLoginClick}>Login</button>
+                                <button onClick={handleLoginClick}>Login</button>
                             </li>
                             <li className="nav-item signup-btn">
-                                <button onClick={onSignupClick}>Sign Up</button>
+                                <button onClick={handleSignupClick}>Sign Up</button>
                             </li>
                         </ul>
                     </nav>
