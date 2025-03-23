@@ -7,33 +7,33 @@ function FAQ() {
     const faqs = [
         {
             id: 1,
-            question: "What is PropertyManager End to End Property Management Plan?",
-            answer: "PropertyManager's End to End property management is a unique plan crafted to cater to customers looking for a reliable team to manage their property. The plan provides a dedicated property manager who helps you manage your property seamlessly and remotely without any hassle. The plan includes end to end services - Verified tenant search, Rental Agreement, On-time rent collection and transfer, Periodic Home Inspection, Seamless tenant move-in and move-out, home maintenance repair services."
+            question: "What services does PrimeProperty offer to home seekers?",
+            answer: "PrimeProperty offers a comprehensive platform for anyone looking to rent or purchase property. Our services include access to thousands of verified property listings, dedicated property specialists to help with your search, virtual property tours, assistance with paperwork and documentation, and flexible viewing appointments to suit your schedule."
         },
         {
             id: 2,
-            question: "How do I keep in touch with PropertyManager while managing my property?",
-            answer: "Once we start managing your property, you can always reach out to your dedicated relationship manager on call or via PropertyManager App in case you have any query."
+            question: "How does PrimeProperty verify property listings?",
+            answer: "All properties on our platform undergo a thorough verification process. Our team physically visits each property, verifies ownership documents, checks for any legal issues, and ensures all amenities listed are accurate. This gives you peace of mind that every property you view on our platform is legitimate and as described."
         },
         {
             id: 3,
-            question: "How do I get the monthly rent for my property?",
-            answer: "The rent is collected by PropertyManager from the tenant and is transferred to your registered bank account. You can track the same in your PropertyManager app."
+            question: "Can I search for properties in specific locations or with specific amenities?",
+            answer: "Absolutely! Our advanced search filters allow you to narrow down properties by location, price range, property type, number of bedrooms, amenities (like parking, gym, swimming pool, etc.), and many other criteria. This helps you find properties that match your exact requirements."
         },
         {
             id: 4,
-            question: "I already have a tenant residing at my property. Can PropertyManager manage my property?",
-            answer: "Yes. PropertyManager team can manage your property. We will verify the current tenant background post owner's confirmation and get the rental agreement signed, if required. We will ensure periodic home inspection is conducted and in case the existing tenant vacates, we will initiate the tenant search for you free of cost."
+            question: "How do I schedule a property viewing?",
+            answer: "You can schedule a viewing directly through our platform by selecting a property and clicking on 'Schedule a Viewing'. You can choose from available time slots or request a custom time. Our property specialists will confirm your appointment and accompany you during the viewing to answer any questions about the property."
         },
         {
             id: 5,
-            question: "What is home inspection and why is it required?",
-            answer: "PropertyManager's certified professional conducts a thorough inspection of your property to capture the current status of the property including a detailed inventory list before the tenant moves-in, during his stay at the property and post he vacates the property. A detailed inspection report is shared with you for every inspection and is explained to you in detail by your relationship manager. This way you are always updated about your property condition."
+            question: "What assistance does PrimeProperty provide during the rental/purchase process?",
+            answer: "We provide end-to-end support throughout your journey. This includes help with negotiating terms, document verification, paperwork completion, and coordination between all parties involved. For rentals, we assist with lease agreements, and for purchases, we guide you through the buying process, including connecting you with legal and financial advisors if needed."
         },
         {
             id: 6,
-            question: "What if the tenant found by PropertyManager vacates the property?",
-            answer: "In case the tenant decides to vacate the property, we immediately start tenant search (free of cost) for your property. Once the old tenant vacates the property, we conduct a thorough home inspection of the property and compare with the pre-move-in report to ensure required repair, painting, cleaning or maintenance work is done and adjusted from the tenant's security deposit."
+            question: "Are there any fees for using PrimeProperty's services?",
+            answer: "Basic property searching and viewing is completely free for home seekers. For premium services like priority access to new listings, dedicated relationship managers, and comprehensive moving assistance, we offer affordable subscription plans tailored to different needs. Check our Pricing section for detailed information on our service packages."
         }
     ];
 

@@ -11,14 +11,14 @@ function Footer({ onLoginClick, onSignupClick }) {
                             <span className="logo-prime">Prime</span><span className="logo-property">Property</span>
                         </h3>
                         <p className="footer-description">
-                            Find your dream property among thousands of listings for buying or renting across top cities in India.
+                            Discover your dream property among thousands of listings for rent or purchase across top cities in India.
                         </p>
                         <div className="footer-contact">
                             <p><span className="contact-icon">📍</span> 123 Property Lane, Mumbai, India</p>
-                            <p><span className="contact-icon">📞</span> +91 9876543210</p>
+                            <p><span className="contact-icon">📞</span> +91 8260028808</p>
                             <p><span className="contact-icon">✉️</span> info@primeproperty.com</p>
                         </div>
-                        <div className="footer-app-download">
+                        {/* <div className="footer-app-download">
                             <h4 className="app-download-title">Download Our App</h4>
                             <p className="app-download-text">Manage your property on the go with our mobile app</p>
                             <div className="app-buttons">
@@ -29,7 +29,7 @@ function Footer({ onLoginClick, onSignupClick }) {
                                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2560px-Download_on_the_App_Store_Badge.svg.png" alt="Download on App Store" />
                                 </a>
                             </div>
-                        </div>
+                        </div> */}
                         {/* <div className="footer-actions">
                             <button className="footer-login" onClick={onLoginClick}>Login</button>
                             <button className="footer-signup" onClick={onSignupClick}>Sign Up</button>

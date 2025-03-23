@@ -44,7 +44,7 @@ function App() {
     return (
         <div className="App">
             <Header onSignupClick={handleOpenSignup} onLoginClick={handleOpenLogin} />
-            <PropertySearch />
+            <PropertySearch onLoginClick={handleOpenLogin} />
             <PropertyTypes />
             <WhyChooseUs />
             <MarketStats />

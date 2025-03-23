@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Banner.css';
 
-function PropertySearch() {
+function PropertySearch({ onLoginClick }) {
     const [propertyType, setPropertyType] = useState('all');
     const [location, setLocation] = useState('Mumbai');
 
@@ -11,7 +11,8 @@ function PropertySearch() {
                 <div className="search-content">
                     <div className="search-text">
                         <h1>Find Your Dream Property</h1>
-                        <p>Discover thousands of apartments, houses, and properties for rent or sale</p>
+                        <p>Discover premium properties with verified listings and risk-free loan assistance at just 2% the cost of other platforms. Your dream home is just a click away!</p>
+                        <button className="cta-btn" onClick={onLoginClick}>Get Started Now</button>
                     </div>
 
                     <div className="search-box">

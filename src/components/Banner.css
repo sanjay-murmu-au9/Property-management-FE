@@ -29,6 +29,28 @@
   line-height: 1.6;
 }
 
+.cta-btn {
+  padding: 14px 30px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(216, 0, 50, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+
+.cta-btn:hover {
+  background-color: #bf0029;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(216, 0, 50, 0.4);
+}
+
 .search-box {
   background-color: white;
   border-radius: 10px;
