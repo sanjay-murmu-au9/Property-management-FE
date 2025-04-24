@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import './Header.css';
 
 function Header({ onSignupClick, onLoginClick }) {
     const [menuOpen, setMenuOpen] = useState(false);
+    const { user, isAuthenticated, logout } = useAuth();
+    const navigate = useNavigate();
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -14,12 +18,28 @@ function Header({ onSignupClick, onLoginClick }) {
 
     const handleLoginClick = () => {
         closeMenu();
-        onLoginClick();
+        if (!isAuthenticated) {
+            onLoginClick();
+        }
     };
 
     const handleSignupClick = () => {
         closeMenu();
-        onSignupClick();
+        if (!isAuthenticated) {
+            onSignupClick();
+        }
+    };
+
+    const handleLogout = () => {
+        closeMenu();
+        logout();
+        navigate('/');
+    };
+
+    const handleMyAccountClick = () => {
+        closeMenu();
+        // For now, just show an alert. In a real app, you would navigate to the user's profile.
+        alert('My Account feature coming soon!');
     };
 
     return (
@@ -40,12 +60,29 @@ function Header({ onSignupClick, onLoginClick }) {
                             <li className="nav-item"><a href="#property-types" onClick={closeMenu}>Properties</a></li>
                             <li className="nav-item"><a href="#pricing" onClick={closeMenu}>Pricing</a></li>
                             <li className="nav-item"><a href="#app-contact" onClick={closeMenu}>Contact</a></li>
-                            <li className="nav-item login-btn">
-                                <button onClick={handleLoginClick}>Login</button>
-                            </li>
-                            <li className="nav-item signup-btn">
-                                <button onClick={handleSignupClick}>Sign Up</button>
-                            </li>
+                            
+                            {isAuthenticated ? (
+                                <>
+                                    <li className="nav-item user-greeting">
+                                        <span>Hello, {user?.name || 'User'}</span>
+                                    </li>
+                                    <li className="nav-item account-btn">
+                                        <button onClick={handleMyAccountClick}>My Account</button>
+                                    </li>
+                                    <li className="nav-item logout-btn">
+                                        <button onClick={handleLogout}>Logout</button>
+                                    </li>
+                                </>
+                            ) : (
+                                <>
+                                    <li className="nav-item login-btn">
+                                        <button onClick={handleLoginClick}>Login</button>
+                                    </li>
+                                    <li className="nav-item signup-btn">
+                                        <button onClick={handleSignupClick}>Sign Up</button>
+                                    </li>
+                                </>
+                            )}
                         </ul>
                     </nav>
                 </div>

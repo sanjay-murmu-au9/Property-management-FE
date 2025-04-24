@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import Header from './Header';
 import Footer from './Footer';
 import CategoryDetails from './CategoryDetails';
@@ -8,10 +9,34 @@ import './CategoryDetailsPage.css';
 function CategoryDetailsPage() {
     const { categoryId, categoryTitle } = useParams();
     const navigate = useNavigate();
+    const { isAuthenticated, loading } = useAuth();
     const [selectedSubcategory, setSelectedSubcategory] = useState(null);
     
     // Decode the title from URL format
     const decodedTitle = decodeURIComponent(categoryTitle || '');
+    
+    // Redirect if not authenticated
+    useEffect(() => {
+        if (!loading && !isAuthenticated) {
+            // Redirect to home with state to show login modal
+            navigate('/', { state: { showLogin: true } });
+        }
+    }, [isAuthenticated, loading, navigate]);
+    
+    // Initial setup and cleanup when leaving the page
+    useEffect(() => {
+        // Remove any modal-open class that might still exist
+        document.body.classList.remove('modal-open');
+        
+        // Scroll to top when page loads
+        window.scrollTo(0, 0);
+        
+        // Cleanup function for when component unmounts
+        return () => {
+            // Ensure modal-open is removed when navigating away
+            document.body.classList.remove('modal-open');
+        };
+    }, []);
     
     // Find the category data by ID
     const getCategoryData = () => {
@@ -109,13 +134,11 @@ function CategoryDetailsPage() {
     
     const categoryData = getCategoryData();
     
-    useEffect(() => {
-        // Scroll to top when page loads
-        window.scrollTo(0, 0);
-    }, []);
-    
     const handleBack = () => {
-        navigate(-1); // Go back to previous page
+        // Remove modal-open class before navigation
+        document.body.classList.remove('modal-open');
+        // Use replace instead of navigate(-1) to avoid history stack issues
+        navigate('/', { replace: true });
     };
     
     const navigateToSubcategory = (subId, title) => {
@@ -125,6 +148,25 @@ function CategoryDetailsPage() {
     
     // Determine if we're looking at a subcategory
     const isSubcategory = decodedTitle.includes(' - ');
+    
+    // Show loading state while checking authentication
+    if (loading) {
+        return (
+            <div className="category-details-page loading">
+                <Header />
+                <div className="loading-container">
+                    <div className="loading-spinner"></div>
+                    <p>Loading...</p>
+                </div>
+                <Footer />
+            </div>
+        );
+    }
+    
+    // Only render content if authenticated
+    if (!isAuthenticated) {
+        return null; // This will be redirected by the useEffect
+    }
     
     return (
         <div className="category-details-page">
@@ -169,4 +211,4 @@ function CategoryDetailsPage() {
     );
 }
 
-export default CategoryDetailsPage; 
+export default CategoryDetailsPage;

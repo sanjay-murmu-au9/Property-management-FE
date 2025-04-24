@@ -9,7 +9,6 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  backdrop-filter: blur(5px);
 }
 
 .signup-form-modal {
@@ -164,12 +163,13 @@
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 1rem;
-  transition: border-color 0.2s;
+  transition: border-color 0.3s ease;
 }
 
 .form-group input:focus {
   border-color: var(--primary-color);
   outline: none;
+  box-shadow: 0 0 0 2px rgba(216, 0, 50, 0.1);
 }
 
 .phone-input-container {
@@ -243,11 +243,22 @@
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.signup-button:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .signup-button:hover {
   background-color: #bf0029;
+  transform: translateY(-1px);
+}
+
+.signup-button:active {
+  transform: translateY(1px);
 }
 
 .signup-form-footer {
@@ -276,6 +287,13 @@
   cursor: pointer;
   padding: 0;
   font-size: 0.9rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.login-text-button:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .login-text-button:hover {
@@ -304,4 +322,100 @@
   .divider {
     margin: 0 20px 15px;
   }
+}
+
+.error-message {
+    color: #ff3333;
+    background-color: rgba(255, 51, 51, 0.1);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.field-error {
+    color: #ff3333;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+input.error {
+    border-color: #ff3333;
+}
+
+.signup-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.signup-btn:hover {
+    background-color: #0b7dda;
+}
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.google-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.google-btn img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.login-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-link button {
+    background: none;
+    border: none;
+    color: #2196f3;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.login-link button:hover {
+    text-decoration: underline;
+}
+
+/* Additional button styles */
+.social-signup button,
+.signup-button,
+.login-text-button {
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.social-signup button:focus,
+.signup-button:focus,
+.login-text-button:focus,
+.close-button:focus {
+  outline: none;
+  box-shadow: none;
 }
