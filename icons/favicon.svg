@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="#d80032" />
+  
+  <!-- House icon in white -->
+  <path d="M52 30L32 14L12 30V50H26V38H38V50H52V30Z" fill="white" />
+</svg>
