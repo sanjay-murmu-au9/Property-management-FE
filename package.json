@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://sanjay-murmu-au9.github.io/Property-management-FE",
   "dependencies": {
+    "firebase": "^11.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.4.0",

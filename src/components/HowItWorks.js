@@ -1,7 +1,7 @@
 import React from 'react';
 import './HowItWorks.css';
 
-function HowItWorks() {
+function HowItWorks({ onSignupClick }) {
     const steps = [
         {
             id: 1,
@@ -37,7 +37,7 @@ function HowItWorks() {
 
                 <div className="cta-container">
                     <h3 className="cta-text">Ready to get started?</h3>
-                    <button className="btn">Sign Up Now</button>
+                    <button className="btn" onClick={onSignupClick}>Sign Up Now</button>
                 </div>
             </div>
         </section>

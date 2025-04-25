@@ -1,9 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import './Services.css';
 
 function PropertyTypes() {
     const navigate = useNavigate();
+    const { isAuthenticated } = useAuth();
 
     const propertyTypes = [
         {
@@ -82,9 +84,26 @@ function PropertyTypes() {
     ];
 
     const navigateToCategory = (id, title) => {
-        // Navigate to the category details page with ID and title as URL parameters
+        // Ensure modal-open class is removed before navigating
+        document.body.classList.remove('modal-open');
+        
+        // Format the path for category
         const formattedTitle = encodeURIComponent(title);
-        navigate(`/category/${id}/${formattedTitle}`);
+        const categoryPath = `/category/${id}/${formattedTitle}`;
+        
+        // Check if user is authenticated
+        if (isAuthenticated) {
+            // If authenticated, navigate directly to the category
+            navigate(categoryPath, { replace: false });
+        } else {
+            // If not authenticated, redirect to home with state to show login modal
+            navigate('/', { 
+                state: { 
+                    showLogin: true,
+                    from: categoryPath // Store the intended destination
+                }
+            });
+        }
     };
 
     return (

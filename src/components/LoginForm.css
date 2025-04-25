@@ -9,7 +9,6 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  backdrop-filter: blur(5px);
 }
 
 .login-form-modal {
@@ -107,10 +106,13 @@
   flex: 1;
   height: 1px;
   background-color: #eee;
+  background-image: linear-gradient(to right, transparent, #ddd, transparent);
 }
 
 .divider span {
   padding: 0 15px;
+  color: #888;
+  font-weight: 500;
 }
 
 .login-form {
@@ -234,4 +236,90 @@
   .divider {
     margin: 0 20px 15px;
   }
+}
+
+.error-message {
+    color: #ff3333;
+    background-color: rgba(255, 51, 51, 0.1);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Add styles for input icons */
+.input-with-icon {
+  position: relative;
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-style: normal;
+  color: #888;
+  font-size: 16px;
+}
+
+.input-with-icon input {
+  padding-left: 40px; /* Make space for the icon */
+}
+
+/* Success message styles */
+.success-message {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 5px 30px 15px;
+  font-size: 0.9rem;
+}
+
+/* Password reset form styles */
+.forgot-password-form {
+  padding: 0 30px 20px;
+}
+
+.reset-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.back-to-login {
+  flex: 1;
+  padding: 12px;
+  background-color: #f5f5f5;
+  color: var(--text-dark);
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.back-to-login:hover {
+  background-color: #e0e0e0;
+}
+
+.reset-button {
+  flex: 1;
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reset-button:hover {
+  background-color: #bf0029;
 }
