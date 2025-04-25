@@ -268,20 +268,19 @@
     margin: 10px 0;
     text-align: center;
   }
-  
+
   .account-btn, .logout-btn {
     margin: 5px 0;
   }
-  
+
   .account-btn button, .logout-btn button {
     width: 100%;
   }
-  
+
   .user-profile {
     margin: 10px 0;
     justify-content: center;
   }
-  
   .user-avatar {
     margin: 0 auto;
   }

@@ -1,8 +1,8 @@
 // Import Firebase SDK
 import { initializeApp } from "firebase/app";
-import { 
-  getAuth, 
-  GoogleAuthProvider, 
+import {
+  getAuth,
+  GoogleAuthProvider,
   signInWithPopup,
   signInWithRedirect,
   getRedirectResult
@@ -27,14 +27,14 @@ const googleProvider = new GoogleAuthProvider();
 export const signInWithGoogle = async () => {
   try {
     let user;
-    
+
     try {
       // Try popup first (works in most development environments)
       const result = await signInWithPopup(auth, googleProvider);
       user = result.user;
     } catch (popupError) {
       console.log("Popup sign-in failed, trying redirect method...", popupError);
-      
+
       // If popup fails (like in some deployed environments), try redirect
       if (popupError.code === 'auth/unauthorized-domain') {
         // Start the redirect flow
@@ -45,7 +45,7 @@ export const signInWithGoogle = async () => {
         throw popupError;
       }
     }
-    
+
     // Return user information
     return {
       id: user.uid,
@@ -64,7 +64,7 @@ export const signInWithGoogle = async () => {
 export const checkRedirectResult = async () => {
   try {
     const result = await getRedirectResult(auth);
-    
+
     if (result && result.user) {
       // User successfully signed in after redirect
       return {
@@ -75,7 +75,7 @@ export const checkRedirectResult = async () => {
         provider: 'google'
       };
     }
-    
+
     return null; // No redirect result
   } catch (error) {
     console.error("Error checking redirect result:", error);

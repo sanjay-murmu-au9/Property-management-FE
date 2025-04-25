@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
                 // Continue loading process even if this fails
             }
         };
-        
+
         checkForRedirect();
     }, []);
 
@@ -74,7 +74,7 @@ export const AuthProvider = ({ children }) => {
     const login = (userData) => {
         // Store user in state
         setUser(userData);
-        
+
         // Store in localStorage for persistence
         localStorage.setItem('user', JSON.stringify(userData));
     };

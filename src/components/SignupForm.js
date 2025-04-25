@@ -22,7 +22,6 @@ function SignupForm({ onClose, onLoginClick }) {
             ...formData,
             [name]: value
         });
-        
         // Clear field-specific error when user starts typing
         if (errors[name]) {
             setErrors({
@@ -30,7 +29,6 @@ function SignupForm({ onClose, onLoginClick }) {
                 [name]: ''
             });
         }
-        
         // Clear general error message
         if (errorMessage) {
             setErrorMessage('');
@@ -39,43 +37,39 @@ function SignupForm({ onClose, onLoginClick }) {
 
     const validateForm = () => {
         const newErrors = {};
-        
         // Email validation
         if (!formData.email.trim()) {
             newErrors.email = 'Email is required';
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
             newErrors.email = 'Please enter a valid email';
         }
-        
         // Password validation
         if (!formData.password) {
             newErrors.password = 'Password is required';
         } else if (formData.password.length < 6) {
             newErrors.password = 'Password must be at least 6 characters';
         }
-        
         // Confirm password validation
         if (!formData.confirmPassword) {
             newErrors.confirmPassword = 'Please confirm your password';
         } else if (formData.password !== formData.confirmPassword) {
             newErrors.confirmPassword = 'Passwords do not match';
         }
-        
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         if (!validateForm()) {
             return;
         }
-        
+
         try {
             setIsLoading(true);
             setErrorMessage('');
-            
+
             // Create user with email and password using Firebase
             const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
             const userData = {
@@ -84,19 +78,18 @@ function SignupForm({ onClose, onLoginClick }) {
                 email: formData.email,
                 provider: 'password'
             };
-            
             // First close the modal
             if (onClose) {
                 onClose();
             }
-            
+
             // Then login the user
             login(userData);
-            
+
         } catch (error) {
             console.error("Signup error:", error);
             let errorMsg = "Failed to create account. Please try again.";
-            
+
             if (error.code === 'auth/email-already-in-use') {
                 errorMsg = "This email is already registered. Please log in instead.";
             } else if (error.code === 'auth/invalid-email') {
@@ -104,7 +97,6 @@ function SignupForm({ onClose, onLoginClick }) {
             } else if (error.code === 'auth/weak-password') {
                 errorMsg = "Password is too weak. Please choose a stronger password.";
             }
-            
             setErrorMessage(errorMsg);
         } finally {
             setIsLoading(false);
@@ -115,9 +107,9 @@ function SignupForm({ onClose, onLoginClick }) {
         try {
             setIsLoading(true);
             setErrorMessage('');
-            
+
             await googleLogin();
-            
+
             // Close the modal after successful signup
             if (onClose) {
                 onClose();
@@ -125,13 +117,11 @@ function SignupForm({ onClose, onLoginClick }) {
         } catch (error) {
             console.error("Google signup error:", error);
             let errorMsg = "Failed to sign up with Google. Please try again.";
-            
             if (error.code === 'auth/popup-closed-by-user') {
                 errorMsg = "Google sign-in was cancelled. Please try again.";
             } else if (error.code === 'auth/popup-blocked') {
                 errorMsg = "Pop-up was blocked by your browser. Please allow pop-ups for this site.";
             }
-            
             setErrorMessage(errorMsg);
         } finally {
             setIsLoading(false);
@@ -143,7 +133,6 @@ function SignupForm({ onClose, onLoginClick }) {
         if (onClose) {
             onClose();
         }
-        
         // Then open the login modal with a slight delay to ensure smooth transition
         setTimeout(() => {
             if (onLoginClick) {
@@ -160,12 +149,12 @@ function SignupForm({ onClose, onLoginClick }) {
                     <p>Join our community to unlock premium features</p>
                     <button className="close-button" onClick={() => onClose()}>×</button>
                 </div>
-                
+
                 {errorMessage && <div className="error-message">{errorMessage}</div>}
-                
+
                 <div className="social-signup">
-                    <button 
-                        className="google-signup" 
+                    <button
+                        className="google-signup"
                         onClick={handleGoogleSignup}
                         disabled={isLoading}
                     >
@@ -173,11 +162,11 @@ function SignupForm({ onClose, onLoginClick }) {
                         Sign up with Google
                     </button>
                 </div>
-                
+
                 <div className="divider">
                     <span>or sign up with email</span>
                 </div>
-                
+
                 <div className="signup-form-content">
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
@@ -197,7 +186,6 @@ function SignupForm({ onClose, onLoginClick }) {
                             </div>
                             {errors.email && <span className="field-error">{errors.email}</span>}
                         </div>
-                        
                         <div className="form-group">
                             <label htmlFor="password">Create Password</label>
                             <div className="input-with-icon">
@@ -215,7 +203,6 @@ function SignupForm({ onClose, onLoginClick }) {
                             </div>
                             {errors.password && <span className="field-error">{errors.password}</span>}
                         </div>
-                        
                         <div className="form-group">
                             <label htmlFor="confirmPassword">Confirm Password</label>
                             <div className="input-with-icon">
@@ -233,13 +220,13 @@ function SignupForm({ onClose, onLoginClick }) {
                             </div>
                             {errors.confirmPassword && <span className="field-error">{errors.confirmPassword}</span>}
                         </div>
-                        
+
                         <div className="terms-privacy">
                             By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
                         </div>
-                        
-                        <button 
-                            type="submit" 
+
+                        <button
+                            type="submit"
                             className="signup-button"
                             disabled={isLoading}
                         >

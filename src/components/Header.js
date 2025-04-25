@@ -63,15 +63,15 @@ function Header({ onSignupClick, onLoginClick }) {
                             <li className="nav-item"><a href="#property-types" onClick={closeMenu}>Properties</a></li>
                             <li className="nav-item"><a href="#pricing" onClick={closeMenu}>Pricing</a></li>
                             <li className="nav-item"><a href="#app-contact" onClick={closeMenu}>Contact</a></li>
-                            
+
                             {isAuthenticated ? (
                                 <>
                                     <li className="nav-item user-profile">
                                         <div className="user-avatar" onClick={handleMyAccountClick}>
-                                            <img 
-                                                src={user?.photoURL || defaultAvatar} 
-                                                alt="Profile" 
-                                                className="avatar-image" 
+                                            <img
+                                                src={user?.photoURL || defaultAvatar}
+                                                alt="Profile"
+                                                className="avatar-image"
                                             />
                                         </div>
                                     </li>

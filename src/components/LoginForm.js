@@ -30,7 +30,7 @@ function LoginForm({ onClose, onSignupClick }) {
             ...formData,
             [name]: type === 'checkbox' ? checked : value
         });
-        
+
         // Clear error when user starts typing
         if (error) {
             setError('');
@@ -46,55 +46,52 @@ function LoginForm({ onClose, onSignupClick }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
         if (!formData.email || !formData.password) {
             setError('Please enter both email and password');
             return;
         }
-        
+
         try {
             setIsLoading(true);
             setError('');
-            
+
             // Sign in with Firebase
             const userCredential = await signInWithEmailAndPassword(
-                auth, 
-                formData.email, 
+                auth,
+                formData.email,
                 formData.password
             );
-            
+
             const userData = {
                 id: userCredential.user.uid,
                 name: userCredential.user.displayName || formData.email.split('@')[0],
                 email: userCredential.user.email,
                 provider: 'password'
             };
-            
             // First close the modal
             if (onClose) {
                 onClose();
             }
-            
+
             // Then login the user
             login(userData);
-            
+
             // Navigate if needed
             if (from !== '/') {
                 navigate(from);
             }
-            
+
         } catch (error) {
             console.error("Login error:", error);
             let errorMsg = "Failed to sign in. Please check your credentials.";
-            
-            if (error.code === 'auth/invalid-credential' || 
-                error.code === 'auth/user-not-found' || 
+
+            if (error.code === 'auth/invalid-credential' ||
+                error.code === 'auth/user-not-found' ||
                 error.code === 'auth/wrong-password') {
                 errorMsg = "Invalid email or password.";
             } else if (error.code === 'auth/too-many-requests') {
                 errorMsg = "Too many failed login attempts. Please try again later.";
             }
-            
             setError(errorMsg);
         } finally {
             setIsLoading(false);
@@ -103,38 +100,36 @@ function LoginForm({ onClose, onSignupClick }) {
 
     const handleForgotPassword = async (e) => {
         e.preventDefault();
-        
         if (!resetEmail.trim()) {
             setError('Please enter your email address');
             return;
         }
-        
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(resetEmail)) {
             setError('Please enter a valid email address');
             return;
         }
-        
+
         try {
             setIsLoading(true);
             setError('');
-            
+
             // Send password reset email
             await sendPasswordResetEmail(auth, resetEmail);
-            
+
             setSuccessMessage('Password reset link has been sent to your email.');
             setTimeout(() => {
                 setShowForgotPassword(false);
                 setSuccessMessage('');
             }, 3000);
-            
+
         } catch (error) {
             console.error("Password reset error:", error);
             let errorMsg = "Failed to send reset email. Please try again.";
-            
+
             if (error.code === 'auth/user-not-found') {
                 errorMsg = "No account found with this email address.";
             }
-            
+
             setError(errorMsg);
         } finally {
             setIsLoading(false);
@@ -145,7 +140,6 @@ function LoginForm({ onClose, onSignupClick }) {
         setShowForgotPassword(!showForgotPassword);
         setError('');
         setSuccessMessage('');
-        
         // Pre-fill the reset email if we already have an email in the login form
         if (!showForgotPassword && formData.email) {
             setResetEmail(formData.email);
@@ -171,14 +165,13 @@ function LoginForm({ onClose, onSignupClick }) {
         try {
             setIsLoading(true);
             setError('');
-            
+
             await googleLogin();
-            
+
             // Close the modal after successful login
             if (onClose) {
                 onClose();
             }
-            
             // Navigate if needed
             if (from !== '/') {
                 navigate(from);
@@ -186,13 +179,11 @@ function LoginForm({ onClose, onSignupClick }) {
         } catch (error) {
             console.error("Google login error:", error);
             let errorMsg = "Failed to sign in with Google. Please try again.";
-            
             if (error.code === 'auth/popup-closed-by-user') {
                 errorMsg = "Google sign-in was cancelled. Please try again.";
             } else if (error.code === 'auth/popup-blocked') {
                 errorMsg = "Pop-up was blocked by your browser. Please allow pop-ups for this site.";
             }
-            
             setError(errorMsg);
         } finally {
             setIsLoading(false);
@@ -204,8 +195,8 @@ function LoginForm({ onClose, onSignupClick }) {
             <div className="login-form-modal">
                 <div className="login-form-header">
                     <h2>{showForgotPassword ? 'Reset Password' : 'Welcome Back'}</h2>
-                    <p>{showForgotPassword ? 
-                        'Enter your email to receive a reset link' : 
+                    <p>{showForgotPassword ?
+                        'Enter your email to receive a reset link' :
                         'Log in to access your PrimeProperty account'}
                     </p>
                     {onClose && (
@@ -219,8 +210,8 @@ function LoginForm({ onClose, onSignupClick }) {
                 {!showForgotPassword ? (
                     <>
                         <div className="social-login">
-                            <button 
-                                className="google-login" 
+                            <button
+                                className="google-login"
                                 onClick={handleGoogleLogin}
                                 disabled={isLoading}
                             >
@@ -290,8 +281,8 @@ function LoginForm({ onClose, onSignupClick }) {
                                 </button>
                             </div>
 
-                            <button 
-                                type="submit" 
+                            <button
+                                type="submit"
                                 className="login-button"
                                 disabled={isLoading}
                             >
@@ -316,18 +307,18 @@ function LoginForm({ onClose, onSignupClick }) {
                                 />
                             </div>
                         </div>
-                        
+
                         <div className="reset-buttons">
-                            <button 
-                                type="button" 
+                            <button
+                                type="button"
                                 className="back-to-login"
                                 onClick={toggleForgotPassword}
                                 disabled={isLoading}
                             >
                                 Back to Login
                             </button>
-                            <button 
-                                type="submit" 
+                            <button
+                                type="submit"
                                 className="reset-button"
                                 disabled={isLoading}
                             >
