@@ -9,7 +9,6 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  backdrop-filter: blur(5px);
 }
 
 .signup-form-modal {
@@ -164,12 +163,13 @@
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 1rem;
-  transition: border-color 0.2s;
+  transition: border-color 0.3s ease;
 }
 
 .form-group input:focus {
   border-color: var(--primary-color);
   outline: none;
+  box-shadow: 0 0 0 2px rgba(216, 0, 50, 0.1);
 }
 
 .phone-input-container {
@@ -243,11 +243,22 @@
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.signup-button:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .signup-button:hover {
   background-color: #bf0029;
+  transform: translateY(-1px);
+}
+
+.signup-button:active {
+  transform: translateY(1px);
 }
 
 .signup-form-footer {
@@ -276,10 +287,78 @@
   cursor: pointer;
   padding: 0;
   font-size: 0.9rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.login-text-button:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .login-text-button:hover {
   text-decoration: underline;
+}
+
+/* New styles for input with icons */
+.input-with-icon {
+  position: relative;
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-style: normal;
+  color: #888;
+  font-size: 16px;
+}
+
+.input-with-icon input {
+  padding-left: 40px; /* Make space for the icon */
+}
+
+/* Style for the terms and privacy section */
+.terms-privacy {
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  text-align: center;
+  padding: 0 10px;
+  line-height: 1.5;
+}
+
+.terms-privacy a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.terms-privacy a:hover {
+  text-decoration: underline;
+}
+
+/* Error display styles */
+.field-error {
+  color: #e53935;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  display: block;
+}
+
+input.error {
+  border-color: #e53935;
+}
+
+.error-message {
+  background-color: rgba(229, 57, 53, 0.1);
+  color: #e53935;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 5px 30px 15px;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 576px) {
